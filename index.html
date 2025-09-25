@@ -1,29 +1,191 @@
-
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fuera de la Matrix</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dos lunas en el horizonte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0a14;
+      color: #fff;
+      font-family: 'Exo 2', sans-serif;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Fondo animado con líneas de código */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(rgba(10, 10, 20, 0.9), rgba(10, 10, 20, 0.9)),
+        repeating-linear-gradient(
+          0deg,
+          rgba(0, 255, 255, 0.03) 0px,
+          rgba(0, 255, 255, 0.03) 1px,
+          transparent 1px,
+          transparent 20px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(255, 0, 255, 0.03) 0px,
+          rgba(255, 0, 255, 0.03) 1px,
+          transparent 1px,
+          transparent 20px
+        );
+      animation: scanline 8s linear infinite;
+      z-index: -2;
+    }
+
+    /* Scanline effect */
+    body::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 255, 200, 0.05) 50%,
+        transparent 100%
+      );
+      animation: flicker 0.15s infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes scanline {
+      0% { background-position: 0 0, 0 0, 0 0; }
+      100% { background-position: 0 1000px, 0 1000px, 0 1000px; }
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 0.95; }
+      50% { opacity: 1; }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Título con efecto glitch */
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.5rem;
+      margin-bottom: 2.5rem;
+      color: #fff;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      animation: pulse 3s infinite alternate;
+    }
+
+    h1::before,
+    h1::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    h1::before {
+      color: #ff00ff;
+      clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+      animation: glitch-1 3s infinite alternate-reverse;
+    }
+
+    h1::after {
+      color: #00ffff;
+      clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+      animation: glitch-2 2.8s infinite alternate-reverse;
+    }
+
+    /* Cuerpo del texto con neón suave */
+    .quote {
+      font-size: 1.4rem;
+      line-height: 1.8;
+      max-width: 700px;
+      color: #e0e0ff;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+      animation: fadeIn 2s ease-out, float 6s ease-in-out infinite;
+    }
+
+    /* Animaciones */
+    @keyframes pulse {
+      0% { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+      100% { text-shadow: 0 0 20px #f0f, 0 0 40px #f0f, 0 0 60px #0ff; }
+    }
+
+    @keyframes glitch-1 {
+      0% { transform: translate(0); }
+      20% { transform: translate(-3px, -2px); }
+      40% { transform: translate(-2px, 2px); }
+      60% { transform: translate(2px, -2px); }
+      80% { transform: translate(3px, 2px); }
+      100% { transform: translate(0); }
+    }
+
+    @keyframes glitch-2 {
+      0% { transform: translate(0); }
+      20% { transform: translate(2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(-3px, 2px); }
+      80% { transform: translate(3px, -2px); }
+      100% { transform: translate(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      .quote {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Fuera de la Matrix</h1>
-    <nav>
-      <ul>
-        <li><a href="viejo-oeste.html">Aliens en el Viejo Oeste</a></li>
-        <li><a href="prehistoria.html">Aliens en la Prehistoria</a></li>
-        <li><a href="actualidad.html">Aliens, Illuminati y Actualidad</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="portada">
-      <img src="logos/alien_portal.png" alt="Portal alienígena" class="portada-img">
-      <p class="intro">Descubre cómo los alienígenas han influido en la historia humana desde tiempos inmemoriales...</p>
-    </section>
-  </main>
+  <div class="container">
+    <h1 data-text="Dos lunas en el horizonte">Dos lunas en el horizonte</h1>
+    <p class="quote">
+      Saber mas te da menos, tener mas te da menos, amar de mas te hace querer menos, crear mas no tiene pierde
+    </p>
+  </div>
 </body>
 </html>
