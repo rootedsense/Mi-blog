@@ -195,8 +195,9 @@ footer a:hover {
   transform: translateX(-50%);
   width: 100px;
   height: 100px;
-  background: #00ff00;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 20%, 80% 20%, 80% 40%, 100% 40%, 100% 60%, 80% 60%, 80% 80%, 100% 80%, 100% 100%, 0% 100%, 0% 80%, 20% 80%, 20% 60%, 0% 60%, 0% 40%, 20% 40%, 20% 20%, 0% 20%);
+  background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgeD0iNDAiIHk9IjEwIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZjAwMDAiLz48cmVjdCB4PSI1MCIgeT0iMTAiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmNDUwMCIvPjxyZWN0IHg9IjMwIiB5PSIyMCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmYwMDAwIi8+PHJlY3QgeD0iNjAiIHk9IjIwIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZjQ1MDAiLz48cmVjdCB4PSIyMCIgeT0iMzAiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmMDAwMCIvPjxyZWN0IHg9IjcwIiB5PSIzMCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmY0NTAwIi8+PHJlY3QgeD0iMjAiIHk9IjQwIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZjAwMDAiLz48cmVjdCB4PSI3MCIgeT0iNDAiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmNDUwMCIvPjxyZWN0IHg9IjMwIiB5PSI1MCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmY0NTAwIi8+PHJlY3QgeD0iNjAiIHk9IjUwIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZjAwMDAiLz48cmVjdCB4PSI0MCIgeT0iNjAiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmMDAwMCIvPjxyZWN0IHg9IjUwIiB5PSI2MCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmY0NTAwIi8+PC9zdmc+') no-repeat center center;
+  background-size: contain;
+  box-shadow: 0 0 10px #ff0000, 0 0 20px #ff4500, 0 0 30px #ff4500;
   animation: monsterMove 5s infinite linear;
   z-index: -3;
 }
